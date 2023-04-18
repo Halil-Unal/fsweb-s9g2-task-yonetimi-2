@@ -29,8 +29,8 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="formColumn">
+    <div className="h-screen flex">
+      <div className="bg-white border-r-1 border-solid overflow-auto">
         <div className="form-container">
           <h2>Yeni Task</h2>
           <TaskHookForm kisiler={team} submitFn={handleTaskSubmit} />
@@ -42,7 +42,7 @@ function App() {
         </div>
       </div>
       <div className="columns">
-        <div className="column">
+        <div className="flex-1 max-w-sm min-w-0 ">
           <h2 className="column-title">Yapılacaklar</h2>
           <div className="column-list">
             {tasks
@@ -52,7 +52,7 @@ function App() {
               ))}
           </div>
         </div>
-        <div className="column">
+        <div className="flex-1 max-w-sm min-w-0 ">
           <h2 className="column-title">Tamamlananlar</h2>
           <div className="column-list">
             {tasks
