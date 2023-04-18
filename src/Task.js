@@ -1,11 +1,15 @@
 import React from "react";
-
+import { formatDistanceToNow, differenceInDays } from "date-fns";
+import { tr } from "date-fns/locale";
 const Task = ({ taskObj, onComplete }) => {
-
+  const deadlineDate = new Date(taskObj.deadline);
+  const daysLeft = differenceInDays(deadlineDate, new Date());
+  const toNow = formatDistanceToNow(deadlineDate, { addSuffix: true, locale: tr });
   return (
     <div className="p-6 bg-white rounded-3xl leading-normal mt-4 shadow-md">
       <h3 className="text-lg text-yellow-300">{taskObj.title}</h3>
-      <div className="deadline">son teslim: <span>{taskObj.deadline}</span></div>
+      son teslim:{" "}
+      <div className="deadline">son teslim:<span className={`${daysLeft < 3 ? "bg-[#ffd9d4]" : ""}`}>{toNow}</span></div>
       <p className="pt-2 pr-0 pb-3 text-sm text-gray-600">{taskObj.description}</p>
       <div >
         {taskObj.people.map((p) => (
