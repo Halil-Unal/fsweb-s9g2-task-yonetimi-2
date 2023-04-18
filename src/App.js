@@ -41,9 +41,9 @@ function App() {
           <PeopleForm kisiler={team} submitFn={handlePeopleSubmit} />
         </div>
       </div>
-      <div className="columns">
+      <div className="flex-1 flex justify-center flex-wrap pt-8 pr-8 pb-6 gap-8 overflow-auto ">
         <div className="flex-1 max-w-sm min-w-0 ">
-          <h2 className="column-title">Yapılacaklar</h2>
+          <h2 className="text-2xl pl-3">Yapılacaklar</h2>
           <div className="column-list">
             {tasks
               .filter((t) => t.status === "yapılacak")
@@ -53,7 +53,7 @@ function App() {
           </div>
         </div>
         <div className="flex-1 max-w-sm min-w-0 ">
-          <h2 className="column-title">Tamamlananlar</h2>
+          <h2 className="text-2xl pl-3">Tamamlananlar</h2>
           <div className="column-list">
             {tasks
               .filter((t) => t.status === "yapıldı")
